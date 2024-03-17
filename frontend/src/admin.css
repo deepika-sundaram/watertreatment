@@ -1,0 +1,61 @@
+.NormalRangeForm{
+
+border:3px solid rgba(0, 0, 0, 0.148);
+margin-top: 10%;
+margin-bottom:10%;
+border-radius: 3%;
+text-align: justify;
+
+box-shadow: 0 2px 20px #100f0f;
+
+margin-left:25%;
+width: 40%;
+
+margin-right:60%;
+}
+
+.NormalRangeForm input{
+    width: 50%;
+}
+.NormalRangeForm form{
+ display:flex;
+ flex-direction: column;
+justify-content:space-between;
+ align-items: center;
+ 
+ 
+}
+#title{
+       
+    font-weight: bolder;
+    font-size: 120%;
+            font-family:sans-serif;
+            text-align: center;
+            
+            border-radius: 10px;
+            padding:2%;
+         
+    
+           
+    color:#050505;
+        }
+       #NormalRangeSubmit{
+
+        width:50%;
+        font-size: 15 px;
+        padding: 10px 30px;
+          background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+        margin:3% auto;
+       
+          transition: 0.5s;
+          background-size: 200% auto;
+          color: white;            
+          box-shadow: 0 0 20px #eee;
+          border-radius: 10px;
+          display: block;}
+    
+          #NormalRangeSubmit:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
