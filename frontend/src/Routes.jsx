@@ -11,7 +11,7 @@ return (
         <Route path="/" element={<App />}/>
         
         <Route path="/home" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
+        {/* <Route path="/admin" element={<Admin />} /> */}
         
       </R1>
 )

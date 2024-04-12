@@ -1,28 +1,35 @@
 
 import { useState } from 'react';
-import './home.css'
+import './home.css';
 import {Admin} from './Admin.jsx';
 import {NewEntry} from './NewEntry.jsx';
 import {AddNewDevice} from './AddNewDevice.jsx';
 import {CreateUser} from './CreateNewUser';
+import { useLocation } from 'react-router-dom';
 
 import {View} from './View.jsx';
 
  export function Home() {
+ 
+  const location = useLocation();
+  const username = location.state.username;
+  console.log(username);
+ let intials=username[0].toUpperCase()+username[1].toUpperCase();
+
     const [selectedItem, setSelectedItem] = useState('NewEntry');
+   
 
     const handleItemClick = (item) => {
         setSelectedItem(item);
     };
     
+
  return (
     <div className="home">
-        
-  <div className="heading">Water quality monitoring</div>
-    <div className="drawer-container">
+        <span className= 'header'>
+  <div className="heading">Water  Monitoring
   
-    
-        <div className="drawer">
+ </div> 
                 
                 <ul className="drawer-menu">
                     <li onClick={() => handleItemClick('NewEntry')}>Home</li>
@@ -32,11 +39,24 @@ import {View} from './View.jsx';
                     <li onClick={() => handleItemClick('CreateNewUser')}>Create new user</li>
                  
                 </ul>
-            </div>
+                {/* <button type="button" className="menuButton" onClick={handleMenuButtonClick}>
+            ☰
+          </button> */}
+              <div className='profile-dropdown'>
+                <div data-initials={intials} className="intials"></div>
+                
+       
+  
+                </div>
+                </span>
+
+
+  
+   
     <div className='content'>
-         {/* <a href='/admin'>Update the normal range</a> */}
+    
         {selectedItem==='Admin'?<Admin/>:''}
-        {selectedItem==='NewEntry'?<NewEntry/>:''}
+        {selectedItem==='NewEntry'?<NewEntry userName={username}/>:''}
           {selectedItem==='View'?<View/>:''}
           {selectedItem==='AddNewDevice'?<AddNewDevice/>:''}
           {selectedItem==='CreateNewUser'?<CreateUser/>:''}
@@ -44,7 +64,7 @@ import {View} from './View.jsx';
   
     </div>
     </div>
-    </div>)
+  )
 }
 
 

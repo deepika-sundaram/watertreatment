@@ -22,12 +22,12 @@ let transporter = nodemailer.createTransport({
 
 // Setup email data with HTML content
 let mailOptions = {
-    from:'deepikasundaram@gmail.com',
-    to: 'deepika24796@gmail.com',
+    from:'deepikasundaram6@gmail.com',
+    to: 'deepikasundaram6@gmail.com',
     subject: 'ALERT!!!!',
     html: `
         <p style="font-size:16px;">Hello,</p>
-        <p style="font-size:16px;">Temperature:${arr[0]}=><strong>${m1}</strong><br>PH:${arr[1]}=><strong>${m2}</strong><br>Chlorine concentration:${arr[2]}=><strong>${m3}</strong><br>.</p>
+        <p style="font-size:16px;">Temperature:${arr[0]}=>  <strong>${m1}</strong><br>PH:${arr[1]}=>  <strong>${m2}</strong><br>Chlorine concentration:${arr[2]}=>  <strong>${m3}</strong><br>.</p>
         <p style="font-size:16px;">Regards<br>Deepika.</p>
     `
 };
