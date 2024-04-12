@@ -33,7 +33,7 @@ console.log(temp);
 
     return(
         <div className="NormalRangeForm">
-      <h3 id="title">Enter new Monitoring range</h3>
+      <h3 id="title_normalRange">Enter new Monitoring range</h3>
         <form  onSubmit={update}>
         <label htmlFor="temperature">TEMPERATURE:</label>
         <input type="number" name="temp_min" placeholder="minvalue"  />

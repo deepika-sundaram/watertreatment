@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 var moment = require('moment');
 const { alert } = require('./emailAlert');
-let {newDevice}=require('./newDevice')
+let {newDevice}=require('./newDevice');
+const { blockchainEntry } = require('./blockChainEntry');
 
 
 dotenv.config();
@@ -71,6 +72,8 @@ app.post('/new_entry', (req, res) => {
   const temp = req.body.temp;
   const ph = req.body.ph;
   const cc=req.body.cc;
+  const ec=req.body.ec;
+  const createdBy=req.body.createdBy;
 
 
   let id=uuidv4();
@@ -106,11 +109,14 @@ let arr=[temp,ph,cc];
 }
 )
 
+blockchainEntry(id,temp,ph,cc,ec,createdBy,time_format)
+
+
 
 
     // Access the result here
   // second, insert the data into the database--------------------------------------------
-  pool.query('INSERT INTO app.data (id,event_timestamp,temperature, ph, chlorine_concentration) VALUES ($1,$2,$3,$4,$5)', [id,time_format,temp,ph,cc], (error) => {
+  pool.query('INSERT INTO app.data (id,event_timestamp,temperature, ph, chlorine_concentration,ec,createdby) VALUES ($1,$2,$3,$4,$5,$6,$7)', [id,time_format,temp,ph,cc,ec,createdBy], (error) => {
    
    if(error)
    {
@@ -120,12 +126,14 @@ let arr=[temp,ph,cc];
           error:'other error'
         });
       
-      console.error(error.message);
+ 
       
     } 
       // If the insertion was successful, send the response
    else  { res.send({
-        "created": true
+        "created": true,
+        "timestamp":time_format
+
       });
     }
   });
@@ -193,7 +201,7 @@ var time = moment();
 
     pool.query('INSERT INTO app.device_information (device_id, device_name, manufacturer, place, timezone, created_at) VALUES ($1, $2, $3, $4, $5, $6)', [dev_ID, devName, devBrand, devLocation, devTimeZone, time_format], (error) => {
         if (error) {
-            console.error(error.message);
+           
             res.send({
               error:'other error'
             });

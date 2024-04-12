@@ -8,11 +8,12 @@
     
     box-shadow: 0 2px 20px #100f0f;
     
-    margin-left:25%;
-    width: 35%;
+    margin-left:30%;
+    width: 40%;
     
-    margin-right:60%;
+    margin-right:30%;
     font-family: sans-serif;
+    background-color:white;
     }
     
     .AddNewDevice input,select{
@@ -21,7 +22,7 @@
     .AddNewDevice form{
      display:flex;
      flex-direction: column;
- 
+ height:80%;
 align-items: center;
      
      

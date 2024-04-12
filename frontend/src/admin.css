@@ -5,17 +5,19 @@ margin-top: 10%;
 margin-bottom:10%;
 border-radius: 3%;
 text-align: justify;
+background-color: #fff;
 
 box-shadow: 0 2px 20px #100f0f;
 
-margin-left:25%;
+margin-left:30%;
 width: 40%;
 
-margin-right:60%;
+margin-right:30%;
 }
 
 .NormalRangeForm input{
     width: 50%;
+    border: #050505 1px solid;
 }
 .NormalRangeForm form{
  display:flex;
@@ -25,7 +27,7 @@ justify-content:space-between;
  
  
 }
-#title{
+#title_normalRange{
        
     font-weight: bolder;
     font-size: 120%;

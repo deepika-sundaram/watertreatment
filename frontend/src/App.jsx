@@ -32,7 +32,7 @@ const [icon, setIcon] = useState(eyeOff);
  });
    const temp = await response.json();
     if(temp.count==='1')
-    navigate('/home')
+    navigate('/home', { state: { username } });
     else
     setCount(temp.count);
 
